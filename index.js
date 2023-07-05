@@ -3,7 +3,7 @@ const path = require("path");
 
 const ruleFiles = fs
   .readdirSync(__dirname)
-  .filter((file) => file !== "index.js");
+  .filter((file) => file !== "index.js" && path.extname(file) === ".js");
 
 const rules = Object.fromEntries(
   ruleFiles.map((file) => [path.basename(file, ".js"), require("./" + file)])
